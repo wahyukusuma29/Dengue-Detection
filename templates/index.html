@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../static/images/insect.png">
+    <title>Dengue Shock Syndrome Detection</title>
+</head>
+<body>
+   
+    <div class="container">
+        <!-- code here -->
+        <div class="card">
+            <!-- Judul -->
+            <div class="card-image">	
+                <h2 class="card-heading">
+                    Dengue Shock Syndrome <br> Detection
+                </h2>
+            </div>
+            
+            <!-- Form -->
+            <form class="card-form" action="{{ url_for('predict') }}" method="post">
+                
+                <div class="input">
+                    <input name="EFUSIPLEURA" type="number" step="any" class="input-field" required/>
+                    <label  class="input-label">EFUSIPLEURA</label>
+                </div>
+                <div class="input">
+                    <input name="HEPATOMEGALI" type="number" step="any" class="input-field" required/>
+                    <label  class="input-label">HEPATOMEGALI</label>
+                </div>
+                <div class="input">
+                    <input name="VOMITING" type="number" step="any" class="input-field" required/>
+                    <label  class="input-label">VOMITING</label>
+                </div>
+                <div class="input">
+                    <input name="ENSEFALOPATI" type="number" step="any" class="input-field" required/>
+                    <label  class="input-label">ENSEFALOPATI</label>
+                </div>
+                <div class="input">
+                    <input name="NAUSEA" type="number" step="any" class="input-field" required/>
+                    <label  class="input-label">NAUSEA</label>
+                </div>
+                <div class="input">
+                    <input name="EPIGASTRIUM" type="number" step="any" class="input-field" required/>
+                    <label  class="input-label">EPIGASTRIUM</label>
+                </div>
+                <div class="input">
+                    <input name="ASITES" type="number" step="any" class="input-field" required/>
+                    <label  class="input-label">ASITES</label>
+                </div>
+                <div class="input">
+                    <input name="HEMORRHAGE" type="number" step="any" class="input-field" required/>
+                    <label  class="input-label">HEMORRHAGE</label>
+                </div>
+                <div class="input">
+                    <input name="HEPATIC_FAILURE" type="number" step="any" class="input-field" required/>
+                    <label  class="input-label">HEPATIC_FAILURE</label>
+                </div>
+                <div class="input">
+                    <input name="ENSEFALITIS" type="number" step="any" class="input-field" required/>
+                    <label  class="input-label">ENSEFALITIS</label>
+                </div>
+                <div class="input">
+                    <input name="RUMPLELEEDE" type="number" step="any" class="input-field" required/>
+                    <label  class="input-label">RUMPLELEEDE</label>
+                </div>
+                <div class="input">
+                    <input name="HEADACHE" type="number" step="any" class="input-field" required/>
+                    <label  class="input-label">HEADACHE</label>
+                </div>
+                <div class="input">
+                    <input name="CONTACT_HISTORY" type="number" step="any" class="input-field" required/>
+                    <label  class="input-label">CONTACT_HISTORY</label>
+                </div>
+                <div class="input">
+                    <input name="KIDNEY_FAILURE" type="number" step="any" class="input-field" required/>
+                    <label  class="input-label">KIDNEY_FAILURE</label>
+                </div>
+                <div class="input">
+                    <input name="TROMBOSIT" type="number" step="any" class="input-field" required/>
+                    <label  class="input-label">TROMBOSIT</label>
+                </div>
+                <div class="input">
+                    <input name="ALB" type="number" step="any" class="input-field" required/>
+                    <label  class="input-label">ALB</label>
+                </div>
+                <div class="input">
+                    <input name="EOSABS" type="number" step="any" class="input-field" required/>
+                    <label  class="input-label">EOSABS</label>
+                </div>
+                <div class="input">
+                    <input name="FEVER" type="number" step="any" class="input-field" required/>
+                    <label class="input-label">FEVER</label>
+                </div>
+                <div class="input">
+                    <input name="UR" type="number" step="any" class="input-field" required/>
+                    <label  class="input-label">UR</label>
+                </div>
+
+                <div class="action">
+                    <button type="submit" class="action-button">SUBMIT</button>
+                </div>
+            </form>
+
+            <center><p id="prediction-text" style="color: black; font-weight: bold;">{{ prediction_text }}</p></center>
+            <center><a href="/">go back homepage</a></center>
+        </div>
+    </div>
+
+    <script>
+        if (window.location.pathname === '/predict') {
+            window.onload = function() {
+                window.scrollTo(0, document.body.scrollHeight);
+            };
+        } else {
+            // Scroll to top if not '/predict'
+            window.onload = function() {
+                window.scrollTo(0, 0);
+            };
+        }
+    </script>
+</body>
+</html>
